@@ -1,0 +1,19 @@
+$dark-palettes: (
+  background: (
+    0: #252525,
+    1: #353535,
+  ),
+  foreground: (
+    0: #ffffff,
+    1: #f2f2f2,
+  ),
+);
+
+@mixin writeOthersPalletes($palettes) {
+  @each $colorname, $palette in $palettes {
+    @each $key, $value in $palette {
+      $keyname: "--app-" + $colorname + "-" + $key;
+      #{$keyname}: #{$value};
+    }
+  }
+}

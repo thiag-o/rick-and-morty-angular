@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": false
+          "standalone": false,
+          "style": "scss"
         },
         "@schematics/angular:directive": {
           "standalone": false
@@ -36,10 +37,16 @@
                 "input": "public"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
+
+            "scripts": [],
             "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+              "src/styles/globals.scss"
+            ]
           },
           "configurations": {
             "production": {

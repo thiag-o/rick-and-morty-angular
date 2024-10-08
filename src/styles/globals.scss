@@ -1,0 +1,70 @@
+@use "@angular/material" as mat;
+@use "./typography.scss";
+@use "./themes/mat-theme.scss";
+@use "./themes/custom-theme.scss" as *;
+
+@include mat.core();
+
+html {
+  // Apply the light theme by default
+  @include mat.core-theme(mat-theme.$dark-theme);
+  @include mat.button-theme(mat-theme.$dark-theme);
+
+  // When using system variables, remember to provide values for them
+  // or uncomment the lines below to generate them from the theme.
+  @include mat.system-level-colors(mat-theme.$dark-theme);
+  @include mat.system-level-typography(mat-theme.$dark-theme);
+  @include writeOthersPalletes($dark-palettes);
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+html,
+body {
+  // height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "League Spartan", "Helvetica Neue", sans-serif;
+  background: var(--app-background-0);
+  color: var(--app-foreground-0);
+}
+
+.container {
+  margin: auto;
+  max-width: 1440px;
+  padding: 0 12px 0 12px;
+}
+.property {
+  display: flex;
+  gap: 4px;
+
+  .label {
+    font-weight: 500;
+  }
+  .value {
+    font-weight: 300;
+  }
+}

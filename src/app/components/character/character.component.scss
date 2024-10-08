@@ -1,0 +1,56 @@
+.character {
+  background-color: var(--app-background-1);
+  padding: 20px 14px;
+  border-radius: 4px;
+  max-width: fit-content;
+
+  .header {
+    margin-bottom: 12px;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+
+  .content {
+    .image {
+      margin-bottom: 14px;
+      img {
+        height: 300px;
+        width: 300px;
+      }
+    }
+
+    .infos {
+      font-size: 1rem;
+      color: var(--app-foreground-1);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .group {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .status-box {
+        display: flex;
+
+        gap: 4px;
+        align-items: center;
+
+        .status-text {
+          line-height: 1;
+        }
+        .status-icon {
+          border-radius: 50%;
+          display: block;
+          width: 8px;
+          height: 8px;
+          background: #24bf0f;
+        }
+      }
+    }
+  }
+}

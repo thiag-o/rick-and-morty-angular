@@ -2,7 +2,9 @@
   background-color: var(--app-background-1);
   padding: 20px 14px;
   border-radius: 4px;
-  max-width: fit-content;
+  display: block;
+
+  border-bottom: 4px solid var(--color-primary);
 
   .header {
     margin-bottom: 12px;
@@ -16,10 +18,8 @@
   .content {
     .image {
       margin-bottom: 14px;
-      img {
-        height: 300px;
-        width: 300px;
-      }
+      height: 300px;
+      width: 300px;
     }
 
     .infos {

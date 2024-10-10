@@ -1,11 +1,27 @@
 <main class="container">
   <app-section-content label="Personagens">
-    <app-character></app-character>
+    <div class="wrapper-items">
+      @for (character of charactersResponse?.results; track $index) {
+      <app-character [character]="character"></app-character>
+      }
+    </div>
   </app-section-content>
   <app-section-content label="Localizações">
-    <app-location></app-location>
+    <div class="wrapper-items two-rows">
+      @for (location of locationsResponse?.results; track $index) {
+
+      <app-location [location]="location"></app-location>
+
+      }
+    </div>
   </app-section-content>
   <app-section-content label="Episódios">
-    <app-episode></app-episode>
+    <div class="wrapper-items two-rows">
+      @for (episode of episodesResponse?.results; track $index) {
+
+      <app-episode [episode]="episode"></app-episode>
+
+      }
+    </div>
   </app-section-content>
 </main>

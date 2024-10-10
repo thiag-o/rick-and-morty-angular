@@ -8,6 +8,7 @@ import { CharacterComponent } from './character/character.component';
 import { MatCardModule } from '@angular/material/card';
 import { LocationComponent } from './location/location.component';
 import { EpisodeComponent } from './episode/episode.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { EpisodeComponent } from './episode/episode.component';
     CharacterComponent,
     LocationComponent,
     EpisodeComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MatCardModule],
   exports: [
@@ -22,6 +24,7 @@ import { EpisodeComponent } from './episode/episode.component';
     CharacterComponent,
     LocationComponent,
     EpisodeComponent,
+    FooterComponent,
   ],
 })
 export class ComponentsModule {}

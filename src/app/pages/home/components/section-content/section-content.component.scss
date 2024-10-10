@@ -2,7 +2,17 @@ section {
   margin-bottom: 60px;
 }
 .section-title {
-  font-size: 3rem;
-  line-height: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
+  h2 {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .show-more {
+    font-size: 1.125rem;
+    border-radius: 0;
+  }
 }

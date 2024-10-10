@@ -4,6 +4,9 @@
 @use "./themes/custom-theme.scss" as *;
 
 @include mat.core();
+* {
+  font-family: "League Spartan", "Helvetica Neue", sans-serif;
+}
 
 html {
   // Apply the light theme by default

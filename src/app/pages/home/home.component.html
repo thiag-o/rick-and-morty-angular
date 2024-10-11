@@ -1,12 +1,21 @@
 <main class="container">
-  <app-section-content label="Personagens">
+  <app-section-content
+    label="Personagens"
+    [link]="{ name: 'Todos as personagens', path: '/personagens' }"
+  >
     <div class="wrapper-items">
       @for (character of charactersResponse?.results; track $index) {
-      <app-character [character]="character"></app-character>
+      <app-character
+        [character]="character"
+        [isHomePage]="true"
+      ></app-character>
       }
     </div>
   </app-section-content>
-  <app-section-content label="Localizações">
+  <app-section-content
+    label="Localizações"
+    [link]="{ name: 'Todos as localizações', path: '/localizacoes' }"
+  >
     <div class="wrapper-items two-rows">
       @for (location of locationsResponse?.results; track $index) {
 
@@ -15,7 +24,10 @@
       }
     </div>
   </app-section-content>
-  <app-section-content label="Episódios">
+  <app-section-content
+    label="Episódios"
+    [link]="{ name: 'Todos os episódios', path: '/episodios' }"
+  >
     <div class="wrapper-items two-rows">
       @for (episode of episodesResponse?.results; track $index) {
 

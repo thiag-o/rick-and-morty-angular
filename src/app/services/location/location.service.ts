@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseResponseInterface } from '../../types/response.interface';
 import { ILocation } from '../../types/location.interface';
@@ -10,9 +10,10 @@ import { environment } from '../../../environments/environment';
 export class LocationService {
   constructor(private http: HttpClient) {}
 
-  getLocations() {
+  getLocations(params?: HttpParams) {
     return this.http.get<BaseResponseInterface<ILocation>>(
-      `${environment.API.baseURL}${environment.API.routes.location.getAll}`
+      `${environment.API.baseURL}${environment.API.routes.location.getAll}`,
+      { params }
     );
   }
 }

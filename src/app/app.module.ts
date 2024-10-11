@@ -8,9 +8,22 @@ import { ComponentsModule } from './components/components.module';
 import { HomeModule } from './pages/home/home.module';
 import { provideHttpClient } from '@angular/common/http';
 
+import { LocationsModule } from './pages/locations/locations.module';
+import { EpisodesModule } from './pages/episodes/episodes.module';
+import { CharactersModule } from './pages/characters/characters.module';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeModule, ComponentsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HomeModule,
+    LocationsModule,
+    EpisodesModule,
+    CharactersModule,
+    ComponentsModule,
+  ],
+
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
 })

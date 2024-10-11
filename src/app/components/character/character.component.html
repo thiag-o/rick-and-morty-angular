@@ -3,7 +3,7 @@
     <h3>{{ character.name }}</h3>
   </div>
   <div class="content">
-    <div class="image">
+    <div class="image" [ngClass]="{isHomePage}">
       <img [src]="character.image" [alt]="character.name" />
     </div>
     <div class="infos">

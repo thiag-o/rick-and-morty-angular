@@ -1,0 +1,30 @@
+.episodes {
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .title-header {
+    margin: 0 auto;
+    display: block;
+    max-width: 900px;
+    margin-bottom: 40px;
+  }
+}
+
+.episodes-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  app-episode {
+    flex: 1;
+  }
+}
+
+.loading {
+  margin-top: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

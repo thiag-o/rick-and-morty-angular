@@ -1,0 +1,22 @@
+<main class="container locations">
+  <div class="title-header">
+    <h1>Localizações</h1>
+    <app-input-search></app-input-search>
+  </div>
+  @if (locationsPaginator.data.length > 0 && !isLoading) {
+
+  <div class="locations-wrapper">
+    @for (location of locationsPaginator.data; track $index) {
+    <app-location [location]="location"></app-location>
+    }
+  </div>
+  @if(locationsPaginator.data.length !== locationsPaginator.total){
+  <div class="loading" observeVisibility (visible)="onVisible()">
+    <mat-spinner diameter="52" color="secondary"></mat-spinner>
+  </div>
+  } @else if(isLoading){
+  <div class="loading">
+    <mat-spinner diameter="52" color="secondary"></mat-spinner>
+  </div>
+  }@else { } }
+</main>

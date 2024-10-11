@@ -8,4 +8,5 @@ import { ICharacter } from '../../types/character.interface';
 })
 export class CharacterComponent {
   @Input({ required: true }) character!: ICharacter;
+  @Input() isHomePage?: boolean;
 }

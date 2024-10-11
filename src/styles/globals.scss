@@ -9,14 +9,12 @@
 }
 
 html {
-  // Apply the light theme by default
   @include mat.core-theme(mat-theme.$dark-theme);
   @include mat.button-theme(mat-theme.$dark-theme);
 
-  // When using system variables, remember to provide values for them
-  // or uncomment the lines below to generate them from the theme.
   @include mat.system-level-colors(mat-theme.$dark-theme);
   @include mat.system-level-typography(mat-theme.$dark-theme);
+  @include mat.progress-spinner-theme(mat-theme.$dark-theme);
   @include writeOthersPalletes($dark-palettes);
 }
 

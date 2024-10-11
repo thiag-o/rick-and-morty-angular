@@ -1,8 +1,14 @@
 <section>
   <div class="section-title">
-    <h2 class="section-title">{{ title }}</h2>
+    <h2>{{ title }}</h2>
 
-    <a class="show-more" mat-button>Todos personagens</a>
+    @if (link) {
+
+    <a class="show-more" mat-button [routerLink]="[link.path]">
+      <span>{{ link.name }}</span>
+      <mat-icon iconPositionEnd>arrow_forward</mat-icon>
+    </a>
+    }
   </div>
   <ng-content></ng-content>
 </section>

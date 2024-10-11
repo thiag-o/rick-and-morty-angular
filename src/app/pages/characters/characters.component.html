@@ -1,0 +1,21 @@
+<main class="container characters">
+  <div class="title-header">
+    <h1>Personagens</h1>
+    <app-input-search></app-input-search>
+  </div>
+  @if (charactersPaginator.data.length > 0 && !isLoading) {
+  <div class="characters-wrapper">
+    @for (character of charactersPaginator.data; track $index) {
+    <app-character [character]="character"></app-character>
+    }
+  </div>
+  @if(charactersPaginator.data.length !== charactersPaginator.total){
+  <div class="loading" observeVisibility (visible)="onVisible()">
+    <mat-spinner diameter="52"></mat-spinner>
+  </div>
+  } }@else if (isLoading) {
+  <div class="loading">
+    <mat-spinner diameter="52"></mat-spinner>
+  </div>
+  }@else{ }
+</main>

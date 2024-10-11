@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class SectionContentComponent {
   @Input('label') title!: string;
-  @Input() link?: string;
+
+  @Input() link?: {
+    name: string;
+    path: string;
+  };
   constructor() {}
 }

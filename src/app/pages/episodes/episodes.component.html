@@ -1,10 +1,11 @@
 <main class="container episodes">
   <div class="title-header">
     <h1>Episódios</h1>
-    <app-input-search></app-input-search>
+    <app-input-search
+      (valueChange)="handleSearchChange($event)"
+    ></app-input-search>
   </div>
-  @if (episodesPaginator.data.length > 0 && !isLoading) {
-
+  @if (episodesPaginator.data.length > 0 ) {
   <div class="episodes-wrapper">
     @for (episode of episodesPaginator.data; track $index) {
     <app-episode [episode]="episode"></app-episode>
@@ -12,11 +13,16 @@
   </div>
   @if(episodesPaginator.data.length !== episodesPaginator.total){
   <div class="loading" observeVisibility (visible)="onVisible()">
-    <mat-spinner diameter="52" color="secondary"></mat-spinner>
+    <mat-spinner diameter="52"></mat-spinner>
   </div>
-  } } @else if (isLoading) {
+  } }@else if (isLoading) {
   <div class="loading">
-    <mat-spinner diameter="52" color="secondary"></mat-spinner>
+    <mat-spinner diameter="52"></mat-spinner>
   </div>
-  }@else { }
+  }@else{
+  <div class="no-content">
+    <p>Nenhum episódio encontrado =(</p>
+  </div>
+
+  }
 </main>

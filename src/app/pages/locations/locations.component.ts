@@ -20,14 +20,16 @@ export class LocationsComponent implements OnInit {
 
   isLoading = false;
 
+  searchValue = '';
+  debounce: any;
   constructor(private locationService: LocationService) {}
 
   ngOnInit(): void {
-    this.isLoading = true;
     this.getLocations();
   }
 
   getLocations() {
+    this.isLoading = true;
     this.locationService
       .getLocations(this.locationsPaginator.params)
       .pipe(finalize(() => (this.isLoading = false)))
@@ -39,6 +41,15 @@ export class LocationsComponent implements OnInit {
           console.log(err);
         },
       });
+  }
+
+  handleSearchChange(value: string) {
+    if (this.debounce) clearTimeout(this.debounce);
+    this.debounce = setTimeout(() => {
+      this.searchValue = value.toLowerCase();
+      this.locationsPaginator.params = { name: this.searchValue };
+      this.getLocations();
+    }, 1000);
   }
 
   onVisible() {

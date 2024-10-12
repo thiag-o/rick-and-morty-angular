@@ -37,7 +37,7 @@ export default class Paginator<T> {
   }
 
   set params(value: GenericParams) {
-    this._params = value;
+    this._params = this._params ? Object.assign(this._params, value) : value;
     this._page = 1;
     this._results = [];
   }
@@ -46,7 +46,7 @@ export default class Paginator<T> {
     let httpParams = new HttpParams();
     if (this._params) {
       Object.keys(this._params).forEach((key) => {
-        if (this._params)
+        if (this._params && this._params[key])
           httpParams = httpParams.append(key, this._params[key]);
       });
     }

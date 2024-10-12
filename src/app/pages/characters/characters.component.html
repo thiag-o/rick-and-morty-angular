@@ -1,9 +1,11 @@
 <main class="container characters">
   <div class="title-header">
     <h1>Personagens</h1>
-    <app-input-search></app-input-search>
+    <app-input-search
+      (valueChange)="handleSearchChange($event)"
+    ></app-input-search>
   </div>
-  @if (charactersPaginator.data.length > 0 && !isLoading) {
+  @if (charactersPaginator.data.length > 0 ) {
   <div class="characters-wrapper">
     @for (character of charactersPaginator.data; track $index) {
     <app-character [character]="character"></app-character>
@@ -17,5 +19,10 @@
   <div class="loading">
     <mat-spinner diameter="52"></mat-spinner>
   </div>
-  }@else{ }
+  }@else{
+  <div class="no-content">
+    <p>Nenhum personagem encontrado =(</p>
+  </div>
+
+  }
 </main>

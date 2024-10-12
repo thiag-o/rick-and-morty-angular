@@ -14,13 +14,16 @@ export class EpisodesComponent {
 
   isLoading = false;
 
+  searchValue = '';
+  debounce: any;
+
   constructor(private episodeService: EpisodeService) {}
   ngOnInit(): void {
-    this.isLoading = true;
     this.getEpisodes();
   }
 
   getEpisodes() {
+    this.isLoading = true;
     this.episodeService
       .getEpisodes(this.episodesPaginator.params)
       .pipe(finalize(() => (this.isLoading = false)))
@@ -32,6 +35,14 @@ export class EpisodesComponent {
           console.log(err);
         },
       });
+  }
+  handleSearchChange(value: string) {
+    if (this.debounce) clearTimeout(this.debounce);
+    this.debounce = setTimeout(() => {
+      this.searchValue = value.toLowerCase();
+      this.episodesPaginator.params = { name: this.searchValue };
+      this.getEpisodes();
+    }, 1000);
   }
 
   onVisible() {
